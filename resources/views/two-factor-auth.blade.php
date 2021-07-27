@@ -34,6 +34,7 @@
                    <div>{{ $code }}</div>
                    @endforeach
                </div> 
+
             @endif
 
             @if(!auth()->user()->two_factor_secret)
@@ -43,7 +44,6 @@
                     <button type="submit">Enable</button>
                 </div>
             </form>
-
             @else
 
             <form action="user/two-factor-authentication" method="POST">
@@ -53,6 +53,14 @@
                     <button type="submit">Disabled</button>
                 </div>
             </form>
+
+            <form action="user/two-factor-recovery-codes" method="POST">
+                @csrf
+                <div>
+                    <button type="submit">Regenerate Code</button>
+                </div>
+            </form>
+          
            
 
             @endif
